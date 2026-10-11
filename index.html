@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Network TV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BARRA LATERAL (MENU) -->
+    <nav class="sidebar">
+        <div class="logo">SHADOW TV</div>
+        <ul class="menu">
+            <li class="menu-item active" onclick="mudarAba('sbt')">📺 SBT</li>
+            <li class="menu-item" onclick="mudarAba('record')">📰 Record News</li>
+            <li class="menu-item" onclick="mudarAba('pluto')">🛸 Pluto TV</li>
+            <li class="menu-item" onclick="mudarAba('series')">🎬 Séries</li>
+        </ul>
+    </nav>
+
+    <!-- ÁREA DO CONTEÚDO PRINCIPAL -->
+    <main class="content">
+        
+        <!-- ABA: SBT -->
+        <section id="aba-sbt" class="tela-section active">
+            <h2>SBT Ao Vivo</h2>
+            <div class="player-container">
+               <iframe width="931" height="524" src="https://www.youtube.com/embed/MeQGhKLcU7E" title="SBT Ao Vivo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade"
+ allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- ABA: RECORD -->
+        <section id="aba-record" class="tela-section">
+            <h2>Record News Ao Vivo</h2>
+            <div class="player-container">
+                <iframe src="https://youtube.com" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- ABA: PLUTO TV -->
+        <section id="aba-pluto" class="tela-section">
+            <h2>Pluto TV Streaming</h2>
+            <div class="player-container">
+                <iframe src="https://pluto.tv" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- ABA: SÉRIES -->
+        <section id="aba-series" class="tela-section">
+            <h2>Catálogo de Séries</h2>
+            <div class="catalogo-grid">
+                <!-- Card de Jujutsu Kaisen com redirecionamento ao clicar -->
+                <div class="card-serie" onclick="window.location.href='https://shadowntv.github.io/Jujutsu-TV/'">
+                    <h3>Jujutsu Kaisen</h3>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- JAVASCRIPT SIMPLES PARA ALTERNAR AS ABAS -->
+    <script>
+        function mudarAba(nomeAba) {
+            // Esconde todas as seções de conteúdo
+            document.querySelectorAll('.tela-section').forEach(tela => {
+                tela.classList.remove('active');
+            });
+
+            // Remove a marcação de ativo de todos os botões do menu
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Mostra apenas a seção clicada
+            document.getElementById(`aba-${nomeAba}`).classList.add('active');
+
+            // Adiciona a marcação de ativo no botão clicado
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
